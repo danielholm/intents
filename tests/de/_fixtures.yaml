@@ -100,10 +100,17 @@ entities:
     attributes:
       device_class: blind
       position: "0"
+  - name: "Rollladen links"
+    id: "cover.wohnzimmer_rollladen_links"
+    area: living_room
+    state: closed
+    attributes:
+      device_class: shutter
+      position: "0"
   - name: "Außentemperatur"
     id: "sensor.outside_temperature"
     area: "garage"
-    state: "21"
+    state: "21.47"
     attributes:
       unit_of_measurement: "°C"
   - name: "Haustür"
@@ -283,6 +290,16 @@ entities:
   - name: "Rover"
     id: "vacuum.rover"
     state: "idle"
+
+  - name: "Thomas"
+    id: "person.thomas"
+    state: "Zuhause"
+  - name: "Madlen"
+    id: "person.madlen"
+    state: "Arbeit"
+  - name: "Felix"
+    id: "person.felix"
+    state: "not_home"
 
 timers:
   - is_active: false

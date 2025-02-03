@@ -29,6 +29,7 @@ da:
 de:
   nativeName: Deutsch
   leaders:
+    - andreasbrett
     - easterapps
     - mib1185
 de-CH:
@@ -37,6 +38,8 @@ de-CH:
     - dontinelli
 el:
   nativeName: Ελληνικά
+  leaders:
+    - chatziko
 en:
   nativeName: English
   leaders:
@@ -139,6 +142,8 @@ nb:
   nativeName: Norsk Bokmål
   leaders:
     - LaStrada
+ne:
+  nativeName: नेपाली
 nl:
   nativeName: Nederlands
   leaders:
@@ -180,6 +185,11 @@ sr:
   nativeName: Српски
   leaders:
     - cvladan
+    - ddxic
+sr-Latn:
+  nativeName: Srpski
+  leaders:
+    - darkobg79
 sv:
   nativeName: Svenska
   leaders:

@@ -21,7 +21,17 @@ areas:
   - name: "Ullakko"
     id: "attic"
 
+  - name: "Yläkerta"
+    id: "upstairs"
+
 entities:
+  - name: "Kattokruunu"
+    id: "light.ylakerta"
+    area: "upstairs"
+    state:
+      in: "päällä"
+      out: "on"
+
   - name: "Eteisen Lamppu"
     id: "light.entrance"
     area: "entrance"
@@ -412,16 +422,16 @@ entities:
 
   - name: "Helsinki"
     id: "weather.helsinki"
-    state: "snowy"
+    state: "Vesisadetta"
     attributes:
-      temperature: "-15"
+      temperature: "15"
       temperature_unit: "°C"
 
   - name: "Oulu"
     id: "weather.oulu"
-    state: "clear"
+    state: "Aurinkoista"
     attributes:
-      temperature: "-30"
+      temperature: "30"
       temperature_unit: "°C"
 
   - name: "Rautakauppa"
@@ -468,4 +478,10 @@ timers:
     total_seconds_left: 190
     rounded_hours_left: 0
     rounded_minutes_left: 3
+    rounded_seconds_left: 0
+  - area: "attic"
+    start_minutes: 15
+    total_seconds_left: 120
+    rounded_hours_left: 0
+    rounded_minutes_left: 2
     rounded_seconds_left: 0

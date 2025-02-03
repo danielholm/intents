@@ -129,7 +129,7 @@ responses:
         "valve": "klep"
         } %}
       {% if domain in translations -%}
-        Sorry, ik kan geen {{ translations[domain] }} vinden in {{ area }}"
+        Sorry, ik kan geen {{ translations[domain] }} vinden in {{ floor }}"
       {%- else -%}
         Sorry, ik kan in {{ floor }} geen apparaat van dat type vinden.
       {%- endif %}
@@ -152,7 +152,7 @@ responses:
       {%- endif %}
     no_entity_in_floor: "Sorry, ik kan geen apparaat met de naam {{ entity }} in {{ floor }} vinden"
     entity_wrong_state: "Sorry, geen enkel apparaat heeft de status {{ state | lower }}"
-    feature_not_supported: "Sorry, er is geen appararaat wat dit ondersteund."
+    feature_not_supported: "Sorry, er is geen apparaat wat dit ondersteund."
 
     # Errors for when user is logged in and we can give more information
     no_entity_exposed: "Sorry, {{ entity }} is niet ontsloten"
@@ -348,14 +348,6 @@ lists:
       type: "temperature"
       from: 0
       to: 100
-  temperature_unit:
-    values:
-      - "celsius"
-      - in: "c"
-        out: "celsius"
-      - "fahrenheit"
-      - in: "f"
-        out: "fahrenheit"
 
   on_off_states:
     values:
@@ -657,6 +649,9 @@ lists:
   timer_command:
     wildcard: true
 
+  message:
+    wildcard: true
+
 expansion_rules:
   # generic expansion rules for sentences
   name: "[de|het] {name}"
@@ -681,7 +676,7 @@ expansion_rules:
   would: "(kan|kun|wil) (je|jij)"
   to: "(naar|op)"
   is: "(zijn|is|staa(n|t)|zit[ten]|word[t|en]|lig(t|gen))"
-  all: "(alle[maal]|elk[e]|ieder[e]|overal)"
+  all: "(alle|elke|iedere|overal)"
   state: "(status|staat|stand)"
   # cover deivce classes
   awning: "(luifel[s]|[zonne]scherm[en])"
@@ -718,7 +713,7 @@ expansion_rules:
   brightness: "[de] (helderheid|felheid|intensiteit|lichtsterkte)"
   brightness_value: "{brightness}[ ][%|procent]"
   # temperature/climate states
-  temperature: "{temperature}[ ][°|graden] [{temperature_unit}]"
+  temperature: "{temperature}[ ][°|graden]"
   warm: "(warm|heet|koud|koel)"
   # cover states
   open: "(open|omhoog|naar boven|opwaarts)"
@@ -773,11 +768,13 @@ expansion_rules:
   timer_suffix: >
     (
       (van|voor) <timer_start>
-      |[<in>] <area>
+      |<in> <area>
       |<timer_named> {timer_name:name}
     )
-  my_timer: "[de|mijn|m'n] ([<timer_prefix>](timer|kookwekker)|(timer|kookwekker) <timer_suffix>)"
-  area_timer: "<in> <area> [de|mijn|m'n] (timer|kookwekker)"
+  my: (de|mijn|m'n)
+  timer: (timer|kookwekker|eierwekker)
+  my_timer: "[<my>] ([<timer_prefix>]<timer>|<timer> <timer_suffix>)"
+  area_timer: "<in> <area> [<my>] <timer>"
 
 skip_words:
   - "alstublieft"
